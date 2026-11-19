@@ -1,0 +1,119 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #243247;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 7%;
+  background: #142d4e;
+  color: white;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  text-align: center;
+  padding: 90px 20px;
+  background: #e7f0fb;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 7px;
+  background: #1769aa;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #104e80;
+}
+
+.overview {
+  max-width: 1000px;
+  margin: 45px auto;
+  padding: 0 20px;
+}
+
+.dashboard-placeholder {
+  margin-top: 20px;
+  padding: 35px;
+  background: white;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #667085;
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
+
