@@ -20,7 +20,7 @@ const incidentInfo = new mongoose.Schema({
 
   status: {
     type: String,
-    default: 'Open', // automatically starts as Open
+    default: 'Open', // automatically displays as Open
     enum: ['Open', 'In Progress', 'Resolved']
   },
 
