@@ -19,6 +19,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var incidentsRouter = require('./routes/incidents');
 
 var app = express();
 
@@ -32,8 +33,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes to use when visiting incidents
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/incidents', incidentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
