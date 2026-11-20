@@ -12,12 +12,6 @@ const incidentInfo = new mongoose.Schema({
     required: true,
   },
 
-  category: {
-    type: String,
-    required: true,
-    enum: ['Hardware', 'Software', 'Network', 'Other']
-  },
-
   priority: {
     type: String,
     required: true,

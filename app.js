@@ -4,9 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
-var mongoose = require('mongoose'); // Connection to MongoDB 
+var mongoose = require('mongoose'); // connection to MongoDB 
 
-// Connection to our TechDesk database
+// connection to our TechDesk database
 mongoose.connect(process.env.MONGODB_URI, {
   dbName: 'techdesk'
 })
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes to use when visiting incidents
+// routes to use when visiting incidents
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/incidents', incidentsRouter);

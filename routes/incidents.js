@@ -2,11 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Incident = require('../models/Incident');
 
-// Form to create a new incident
-router.get('/new', function(req, res) {
-  res.render('create-incident');
-});
-
 // Show all incidents
 router.get('/', function(req, res) {
   Incident.find().then(function(incidents) {
