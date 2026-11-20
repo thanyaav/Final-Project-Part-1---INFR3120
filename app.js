@@ -6,7 +6,7 @@ var logger = require('morgan');
 require('dotenv').config();
 var mongoose = require('mongoose'); // connection to MongoDB 
 
-// connection to our TechDesk database
+// connection to our TechDesk database: server-side
 mongoose.connect(process.env.MONGODB_URI, {
   dbName: 'techdesk'
 })

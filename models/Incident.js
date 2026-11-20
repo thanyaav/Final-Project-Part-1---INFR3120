@@ -23,10 +23,9 @@ const incidentInfo = new mongoose.Schema({
   status: {
     type: String,
     default: 'Open', // automatically displays as Open
-    enum: ['Open', 'In Progress', 'Resolved']
   }
-  
+
 });
 
-// Route Access
+// Route Access: Server-side Validation
 module.exports = mongoose.model('Incident', incidentInfo);
