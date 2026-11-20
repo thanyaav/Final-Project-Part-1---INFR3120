@@ -3,9 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
+var mongoose = require('mongoose'); // connection to MongoDB 
+
+// connection to our TechDesk database: server-side
+mongoose.connect(process.env.MONGODB_URI, {
+  dbName: 'techdesk'
+})
+.then(function() {
+  console.log('Connected to MongoDB Atlas');
+})
+.catch(function(err) {
+  console.log('MongoDB connection error:', err.message);
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var incidentsRouter = require('./routes/incidents');
 
 var app = express();
 
@@ -19,8 +33,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routes to use when visiting incidents
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/incidents', incidentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
