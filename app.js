@@ -3,6 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
+var mongoose = require('mongoose'); // Connection to MongoDB 
+
+// Connection to our TechDesk database
+mongoose.connect(process.env.MONGODB_URI, {
+  dbName: 'techdesk'
+})
+.then(function() {
+  console.log('Connected to MongoDB Atlas');
+})
+.catch(function(err) {
+  console.log('MongoDB connection error:', err.message);
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
