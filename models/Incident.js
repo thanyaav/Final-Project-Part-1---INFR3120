@@ -5,11 +5,13 @@ const incidentInfo = new mongoose.Schema({
   title: { // name of IT problem
     type: String,
     required: true,
+    maxlength: 100
   },
 
   description: { // explanation of the problem
     type: String,
     required: true,
+    maxlength: 1000
   },
 
   priority: {
@@ -22,12 +24,8 @@ const incidentInfo = new mongoose.Schema({
     type: String,
     default: 'Open', // automatically displays as Open
     enum: ['Open', 'In Progress', 'Resolved']
-  },
-
-  createdAt: { // automatically records when the incident was created
-    type: Date,
-    default: Date.now
   }
+  
 });
 
 // Route Access
