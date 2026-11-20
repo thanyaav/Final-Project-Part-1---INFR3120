@@ -17,4 +17,26 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/new', function(req, res) {
+  res.render('new-incident');
+});
+
+// Save Incident to MongoDB
+router.post('/', function(req, res) {
+  const newIncident = new Incident({
+    title: req.body.title,
+    description: req.body.description,
+    priority: req.body.priority
+  });
+
+  newIncident.save()
+    .then(function() {
+      res.redirect('/incidents');
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.status(500).send('Error saving incident');
+    });
+});
+
 module.exports = router;

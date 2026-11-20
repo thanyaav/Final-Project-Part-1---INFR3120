@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <!-- Contains information ABOUT the page.
+       These elements generally aren't displayed in the page itself. -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TechDesk | Create Incident</title>
+  <!-- The title shown in the browser tab. -->
+
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <!-- Connects this page to our external CSS stylesheet.-->
+</head>
+
+<body>
+<!-- Everything inside body is part of the visible webpage. -->
+
+  <header class="navbar">
+
+    <a href="/" class="brand">
+
+      <!-- Displays the TechDesk logo. -->
+      <img src="/images/techdesk-logo.png" alt="TechDesk Logo">
+
+      <!-- Displays the name beside the logo. -->
+      <span>TechDesk</span>
+    </a>
+
+    <!-- Navigation links for moving between application pages. -->
+    <nav>
+      <a href="/">Home</a>
+      <a href="/incidents">View Incidents</a>
+      <a href="/incidents/new">Create Incident</a>
+    </nav>
+
+  </header>
+
+
+  <!-- MAIN: Contains the primary content of this webpage. -->
+  <main class="form-container">
+
+    <!-- This tells the user what this page is for. -->
+    <h1>Create a New Incident</h1>
+    <p>Enter the details of the IT issue you want to report.</p>
+
+
+    <!-- FORM: Collects information entered by the user.
+
+         action="/incidents":
+         When submitted, the browser sends the form data to this URL.
+
+         method="POST":
+         Sends the information in the request body instead of
+         putting it directly into the URL.
+
+         Express will need a POST route at /incidents to process it. -->
+    <form action="/incidents" method="POST">
+
+
+      <!-- Incident title. -->
+      <div class="form-group">
+
+        <!-- The label describes the input field.-->
+        <label for="title">Incident Title</label>
+
+        <!-- Allows the user to enter a short title. -->
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Example: Unable to connect to Wi-Fi"
+          required
+          maxlength="100">
+
+      </div>
+
+
+      <!-- Description of the technical problem. -->
+      <div class="form-group">
+
+        <!-- Label connected to the description textarea. -->
+        <label for="description">Description</label>
+
+        <!-- A textarea allows users to enter multiple lines of text.-->
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Describe the issue..."
+          rows="5"
+          required
+          maxlength="1000"></textarea>
+
+      </div>
+
+
+      <!-- Priority selection. -->
+      <div class="form-group">
+
+        <!-- Label for the dropdown menu. -->
+        <label for="priority">Priority Level</label>
+
+        <!-- A certain element creates a dropdown menu. -->
+        <select id="priority" name="priority" required>
+
+          <!-- This is the initial prompt.-->
+          <option value="">Select a priority</option>
+
+          <!-- Each option is a possible priority.
+               The value is what gets submitted to the server. -->
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- SUBMIT BUTTON-->
+      <button type="submit" class="btn">Submit Incident</button>
+
+
+      <!-- CANCEL LINK -->
+      <a href="/" class="cancel-link">Cancel</a>
+
+    </form>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>TechDesk | INFR3120 Project Part 1</p>
+  </footer>
+
+</body>
+</html>
